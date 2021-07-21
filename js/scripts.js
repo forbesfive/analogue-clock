@@ -44,7 +44,13 @@ let objClock = {
         this.objSecondHand.style.transform = 'rotate('+this.secondsAngle+'deg)';
         this.objMinuteHand.style.transform = 'rotate('+this.minutesAngle+'deg)';
         this.objHourHand.style.transform = 'rotate('+this.hoursAngle+'deg)';
+    },
+    updateClock:function(){
+        this.getCurrentTime();
+        this.calculatingAngles();
+        this.adjustHands();
     }
 }
 
 objClock.init();
+setInterval(function(){ objClock.updateClock();}, 300);
